@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { PortfolioPage } from './components/PortfolioPage/PortfolioPage';
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+import './assets/styles/global.scss';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <PortfolioPage />
   </React.StrictMode>,
   document.getElementById('root')
 );

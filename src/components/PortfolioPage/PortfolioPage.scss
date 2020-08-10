@@ -1,0 +1,19 @@
+.PortfolioPage {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    .PortfolioPage-header {
+        background-color: pink;
+    }
+    
+    .PortfolioPage-content {
+        flex: 1;
+        overflow: auto;
+
+        .PortfolioPage-section {
+            height: 300px;
+            border-bottom: 1px solid pink;
+        }
+    }
+}
