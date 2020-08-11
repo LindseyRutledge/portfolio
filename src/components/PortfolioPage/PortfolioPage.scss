@@ -1,19 +1,77 @@
+@import '../../assets/styles/variables.scss';
+
 .PortfolioPage {
     height: 100vh;
+    background-color: $background;
+    color: $background-text;
     display: flex;
     flex-direction: column;
 
+    .PortfolioPage-title {
+        font-size: 2rem;
+        margin-bottom: $standard-spacing;
+        font-weight: 200;
+
+        &::first-letter{
+            color: $secondary;
+            font-weight: bold;
+        }
+    }
+
+    .PortfolioPage-heading {
+        color: $secondary;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
     .PortfolioPage-header {
-        background-color: pink;
+        background-color: rgba($white, 0.05);
+        color: $primary;
+        padding: $standard-spacing;
+
+        .PortfolioPage-header-icons {
+            display: flex;
+            font-size: 2rem;
+            justify-content: space-between;
+            position: relative;
+
+            &::after {
+                content: '';
+                background-color: rgba($secondary, 0.2);
+                height: 2px;
+                width: 100%;
+                position: absolute;
+                top: 1.5rem;
+            }
+
+            a {
+                height: 3rem;
+                width: 3rem;
+                align-items: center;
+                background-color: $primary;
+                border-radius: 50%;
+                color: $primary-text;
+                display: flex;
+                flex-shrink: 0;
+                justify-content: center;
+                z-index: 1;
+
+                &:nth-child(3) {
+                    background-color: $secondary;
+                }
+            }
+        }
     }
     
     .PortfolioPage-content {
         flex: 1;
         overflow: auto;
+        scroll-behavior: smooth;
 
         .PortfolioPage-section {
             height: 300px;
-            border-bottom: 1px solid pink;
+            border-bottom: 1px solid $primary;
+            padding: $standard-spacing;
         }
     }
 }

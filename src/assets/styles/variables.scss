@@ -1,0 +1,25 @@
+@import './fonts.scss';
+
+// Spacing
+$standard-spacing: 16px;
+
+// Colors
+
+$black: #000000;
+$dark-grey: #121212;
+$pink: #df5181;
+$mint: #cee7e9;
+$white: #ffffff;
+
+// Theme
+
+$primary: $mint;
+$primary-variant: $mint;
+$primary-text: $black;
+
+$secondary: $pink;
+$secondary-variant: $black;
+$secondary-text: $black;
+
+$background: $black;
+$background-text: $white;

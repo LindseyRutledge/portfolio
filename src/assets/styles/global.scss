@@ -1,3 +1,24 @@
+@import './variables.scss';
+
 *, *::before, *::after {
     box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    font-family: 'Titillium Web', 'Roboto', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+}
+
+@media (max-width: 400px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }

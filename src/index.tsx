@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { PortfolioPage } from './components/PortfolioPage/PortfolioPage';
-import './index.css';
 import * as serviceWorker from './serviceWorker';
 import './assets/styles/global.scss';
 
