@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FunctionComponent, useEffect, useRef } from 'react';
+import { FunctionComponent, useEffect, useRef, ReactNode } from 'react';
 import './PortfolioPage.scss';
 import {
     RiEmotionLine,
@@ -10,9 +10,23 @@ import {
 } from 'react-icons/ri';
 import * as _ from 'lodash';
 
+export interface PortfolioSection {
+    id: string;
+    label: string;
+    icon: ReactNode;
+}
+
 export const PortfolioPage: FunctionComponent = () => {
     const contentRef = useRef<HTMLDivElement>(null);
     const iconsRef = useRef<HTMLDivElement>(null);
+
+    const sections: PortfolioSection[] = [
+        { id: 'about', label: 'About', icon: <RiEmotionLine /> },
+        { id: 'skills', label: 'Skills', icon: <RiLightbulbLine /> },
+        { id: 'work-history', label: 'Work History', icon: <RiBriefcase3Line /> },
+        { id: 'projects', label: 'Projects', icon: <RiGithubLine /> },
+        { id: 'links', label: 'Links', icon: <RiLinksLine /> },
+    ];
 
     useEffect(() => {
         updateMenu();
@@ -80,39 +94,23 @@ export const PortfolioPage: FunctionComponent = () => {
             <div className='PortfolioPage-header'>
                 <div className='PortfolioPage-title'>Lindsey Rutledge</div>
                 <div className='PortfolioPage-header-icons' ref={iconsRef}>
-                    <a id='about-icon' href='#about' title='About'>
-                        <RiEmotionLine />
-                    </a>
-                    <a id='skills-icon' href='#skills' title='Skills'>
-                        <RiLightbulbLine />
-                    </a>
-                    <a id='work-history-icon' href='#work-history' title='Work History'>
-                        <RiBriefcase3Line />
-                    </a>
-                    <a id='projects-icon' href='#projects' title='Projects'>
-                        <RiGithubLine />
-                    </a>
-                    <a id='links-icon' href='#links' title='Links'>
-                        <RiLinksLine />
-                    </a>
+                    {sections.map((section: PortfolioSection) => {
+                        return (
+                            <a id={`${section.id}-icon`} href={`#${section.id}`} title={section.label}>
+                                {section.icon}
+                            </a>
+                        );
+                    })}
                 </div>
             </div>
             <div className='PortfolioPage-content' ref={contentRef}>
-                <div className='PortfolioPage-section'>
-                    <div id='about' className="PortfolioPage-heading">About</div>
-                </div>
-                <div className='PortfolioPage-section'>
-                    <div id='skills' className="PortfolioPage-heading">Skills</div>
-                </div>
-                <div className='PortfolioPage-section'>
-                    <div id='work-history' className="PortfolioPage-heading">Work History</div>
-                </div>
-                <div className='PortfolioPage-section'>
-                    <div id='projects' className="PortfolioPage-heading">Projects</div>
-                </div>
-                <div className='PortfolioPage-section'>
-                    <div id='links' className="PortfolioPage-heading">Links</div>
-                </div>
+                {sections.map((section: PortfolioSection) => {
+                    return (
+                        <div className='PortfolioPage-section'>
+                            <div id={section.id} className='PortfolioPage-heading'>{section.label}</div>
+                        </div>
+                    );
+                })}
             </div>
         </div>
     );
