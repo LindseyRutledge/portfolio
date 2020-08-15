@@ -44,20 +44,37 @@
                 top: 1.5rem;
             }
 
-            a {
-                height: 3rem;
-                width: 3rem;
-                align-items: center;
-                background-color: $primary;
-                border-radius: 50%;
-                color: $primary-text;
+            .PortfolioPage-header-iconsGroup {
                 display: flex;
-                flex-shrink: 0;
+                flex-direction: column;
+                align-items: center;
                 justify-content: center;
-                z-index: 1;
 
-                &.selected {
-                    background-color: $secondary;
+                .Portfolio-header-icon {
+                    height: 3rem;
+                    width: 3rem;
+                    align-items: center;
+                    background-color: $primary;
+                    border-radius: 50%;
+                    color: $primary-text;
+                    display: flex;
+                    flex-shrink: 0;
+                    justify-content: center;
+                    margin-bottom: 1rem;
+                    z-index: 1;
+    
+                    &.selected {
+                        background-color: $secondary;
+                    }
+                }
+    
+                .Portfolio-header-iconLabel {
+                    font-size: 1rem;
+
+                        
+                    &.selected {
+                        color: $secondary;
+                    }
                 }
             }
         }
@@ -69,7 +86,7 @@
         scroll-behavior: smooth;
 
         .PortfolioPage-section {
-            height: 300px;
+            min-height: 300px;
             padding: $standard-spacing;
 
             &:not(:last-child) {

@@ -9,6 +9,7 @@ import {
     RiLinksLine
 } from 'react-icons/ri';
 import * as _ from 'lodash';
+import classNames from 'classnames';
 
 export interface PortfolioSection {
     id: string;
@@ -34,14 +35,10 @@ export const PortfolioPage: FunctionComponent = () => {
         const throttledScroll = _.throttle(updateMenu, 50);
         const currentContentRef: HTMLDivElement | null = contentRef.current;
 
-        if (currentContentRef) {
-            currentContentRef.addEventListener('scroll', throttledScroll);
-        }
+        currentContentRef && currentContentRef.addEventListener('scroll', throttledScroll);
 
         return () => {
-            if (currentContentRef) {
-                currentContentRef.removeEventListener('scroll', throttledScroll);
-            }
+            currentContentRef && currentContentRef.removeEventListener('scroll', throttledScroll);
         };
     }, []);
 
@@ -96,9 +93,21 @@ export const PortfolioPage: FunctionComponent = () => {
                 <div className='PortfolioPage-header-icons' ref={iconsRef}>
                     {sections.map((section: PortfolioSection) => {
                         return (
-                            <a id={`${section.id}-icon`} href={`#${section.id}`} title={section.label}>
-                                {section.icon}
-                            </a>
+                            <div className='PortfolioPage-header-iconsGroup'>
+                                <a
+                                    className={classNames('Portfolio-header-icon', `${section.id}-icon`)}
+                                    id={`${section.id}-icon`}
+                                    href={`#${section.id}`}
+                                    title={section.label}
+                                >
+                                    {section.icon}
+                                </a>
+                                <div
+                                    className={classNames('Portfolio-header-iconLabel', `${section.id}-label`)}
+                                >
+                                    {section.label}
+                                </div>
+                            </div>
                         );
                     })}
                 </div>
