@@ -72,16 +72,10 @@ export const PortfolioPage: FunctionComponent = () => {
     useEffect(setupScrollEventListener, [usedLocationHash]);
 
     const setSelectedMenuItem = (index: number) => {
-        // TODO -- consider just tracking this by state instead of manual classname add/removal
-        // like... give the icon group a classname that depends on the state (eg selectedMenuItem);
-
         sections.forEach((section: PortfolioSection, i: number) => {
-            const icon = iconsRef.current[i];
-            icon && icon.classList.remove('selected');
+            iconsRef.current[i]?.classList.remove('selected');
         });
-
-        const selectedIcon: HTMLDivElement = iconsRef.current[index];
-        selectedIcon && selectedIcon.classList.add('selected');
+        iconsRef.current[index]?.classList.add('selected');
     };
 
     const setSelectedMenuItemByHashLocation = () => {
@@ -131,26 +125,27 @@ export const PortfolioPage: FunctionComponent = () => {
                 <div className='PortfolioPage-header-icons'>
                     {sections.map((section: PortfolioSection, i: number) => {
                         return (
-                            <div key={section.id} className='PortfolioPage-header-iconsGroup' ref={icon => icon ? iconsRef.current[i] = icon : undefined}>
-                                <a
-                                    className={classNames('PortfolioPage-header-icon', `${section.id}-icon`)}
-                                    id={`${section.id}-icon`}
-                                    href={`#${section.id}`}
-                                    title={section.label}
-                                    onClick={() => {
-                                        contentRef.current?.removeEventListener('scroll', throttledScroll);
-                                        debouncedAddEventListener();
-                                        setSelectedMenuItem(i);
-                                    }}
-                                >
-                                    {section.icon}
-                                </a>
+                            <a
+                                key={section.id}
+                                href={`#${section.id}`}
+                                onClick={() => {
+                                    contentRef.current?.removeEventListener('scroll', throttledScroll);
+                                    debouncedAddEventListener();
+                                    setSelectedMenuItem(i);
+                                }}
+                            >
                                 <div
-                                    className={classNames('PortfolioPage-header-iconLabel', `${section.id}-label`)}
+                                    className='PortfolioPage-header-iconGroup'
+                                    ref={icon => icon ? iconsRef.current[i] = icon : undefined}
                                 >
-                                    {section.label}
+                                    <div className={classNames('PortfolioPage-header-icon', `${section.id}-icon`)}>
+                                        {section.icon}
+                                    </div>
+                                    <div className={classNames('PortfolioPage-header-iconLabel', `${section.id}-label`)}>
+                                        {section.label}
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         );
                     })}
                 </div>
