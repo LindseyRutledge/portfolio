@@ -50,7 +50,17 @@
                 align-items: center;
                 justify-content: center;
 
-                .Portfolio-header-icon {
+                &.selected {
+                    .PortfolioPage-header-icon {
+                        background-color: $secondary;
+                    }
+
+                    .PortfolioPage-header-iconLabel {
+                        color: $secondary;
+                    }
+                }
+
+                .PortfolioPage-header-icon {
                     height: 3rem;
                     width: 3rem;
                     align-items: center;
@@ -62,19 +72,10 @@
                     justify-content: center;
                     margin-bottom: 1rem;
                     z-index: 1;
-    
-                    &.selected {
-                        background-color: $secondary;
-                    }
                 }
     
-                .Portfolio-header-iconLabel {
+                .PortfolioPage-header-iconLabel {
                     font-size: 1rem;
-
-                        
-                    &.selected {
-                        color: $secondary;
-                    }
                 }
             }
         }

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FunctionComponent, useEffect, useRef, ReactNode } from 'react';
+import { FunctionComponent, useEffect, useRef, ReactNode, useState } from 'react';
 import './PortfolioPage.scss';
 import {
     RiEmotionLine,
@@ -18,8 +18,11 @@ export interface PortfolioSection {
 }
 
 export const PortfolioPage: FunctionComponent = () => {
+    const [usedLocationHash, setUsedLocationHash] = useState<boolean>(false);
+
     const contentRef = useRef<HTMLDivElement>(null);
-    const iconsRef = useRef<HTMLDivElement>(null);
+    const iconsRef = useRef<HTMLDivElement[]>([]);
+    const sectionsRef = useRef<HTMLDivElement[]>([]);
 
     const sections: PortfolioSection[] = [
         { id: 'about', label: 'About', icon: <RiEmotionLine /> },
@@ -29,81 +32,121 @@ export const PortfolioPage: FunctionComponent = () => {
         { id: 'links', label: 'Links', icon: <RiLinksLine /> },
     ];
 
-    useEffect(() => {
-        updateMenu();
-
-        const throttledScroll = _.throttle(updateMenu, 50);
-        const currentContentRef: HTMLDivElement | null = contentRef.current;
-
-        currentContentRef && currentContentRef.addEventListener('scroll', throttledScroll);
-
-        return () => {
-            currentContentRef && currentContentRef.removeEventListener('scroll', throttledScroll);
-        };
-    }, []);
-
     const updateMenu = () => {
         const currentContentRef: HTMLDivElement | null = contentRef.current;
-        const currentIconsRef: HTMLDivElement | null = iconsRef.current;
 
-        if (currentContentRef && currentIconsRef) {
-            const contentPos = currentContentRef.offsetTop;
-            const contentHeight = currentContentRef.offsetHeight;
+        if (currentContentRef) {
+            const contentHeight: number = currentContentRef.offsetHeight;
+            const scrollTopPosition: number = currentContentRef.scrollTop;
+            const scrollBottomPosition: number = scrollTopPosition + contentHeight;
+            const scrollHeight: number = currentContentRef.scrollHeight;
 
-            const scrollPosTop = currentContentRef.scrollTop;
-            const scrollPosBottom = scrollPosTop + currentContentRef.clientHeight;
-            const scrollHeight = currentContentRef.scrollHeight;
+            const isScrolledToBottom: boolean = scrollTopPosition + contentHeight === scrollHeight;
 
-            const headings: HTMLCollection | any = currentContentRef.getElementsByClassName('PortfolioPage-heading');
-
-            let selectedSet = false;
-
-            const headingsArray: any = [...headings];
-
-            for (const [index, heading] of headingsArray.entries()) {
-                const id = heading.id;
-                const headingPos = heading.offsetTop - contentPos;
-
-                const matchingIcon: HTMLAnchorElement | null = currentIconsRef.querySelector(`#${id}-icon`);
-
-                if (matchingIcon) {
-                    matchingIcon.classList.remove('selected');
-
-                    if (scrollPosTop + contentHeight === scrollHeight) {
-                        selectedSet = true;
-
-                        if (index === headingsArray.length - 1) {
-                            matchingIcon.classList.add('selected');
-                        }
-                    }
-
-                    if (!selectedSet && headingPos >= scrollPosTop && headingPos <= scrollPosBottom) {
-                        matchingIcon.classList.add('selected');
-                        selectedSet = true;
-                    }
-                }
-            };
+            if (window.location.hash && !usedLocationHash) {
+                console.log('hash')
+                setSelectedMenuItemByHashLocation();
+                setUsedLocationHash(true);
+            } else if (isScrolledToBottom) {
+                console.log('bottom')
+                setSelectedMenuItem(sections.length - 1);
+            } else {
+                console.log('position')
+                setSelectedMenuItemByScrollPosition(scrollTopPosition, scrollBottomPosition);
+            }
         }
     };
+
+    const throttledScroll = _.throttle(updateMenu, 100);
+
+    const setupScrollEventListener = () => {
+        contentRef.current?.addEventListener('scroll', throttledScroll);
+
+        return () => {
+            contentRef.current?.removeEventListener('scroll', throttledScroll);
+        };
+    };
+
+    useEffect(updateMenu, []);
+
+    useEffect(setupScrollEventListener, [usedLocationHash]);
+
+    const setSelectedMenuItem = (index: number) => {
+        // TODO -- consider just tracking this by state instead of manual classname add/removal
+        // like... give the icon group a classname that depends on the state (eg selectedMenuItem);
+
+        sections.forEach((section: PortfolioSection, i: number) => {
+            const icon = iconsRef.current[i];
+            icon && icon.classList.remove('selected');
+        });
+
+        const selectedIcon: HTMLDivElement = iconsRef.current[index];
+        selectedIcon && selectedIcon.classList.add('selected');
+    };
+
+    const setSelectedMenuItemByHashLocation = () => {
+        const location = window.location.hash.replace('#', '');
+
+        const sectionIndex = sections.findIndex((section: PortfolioSection) => {
+            return section.id === location
+        });
+
+        setSelectedMenuItem(sectionIndex);
+    };
+
+    const setSelectedMenuItemByScrollPosition = (scrollTopPosition: number, scrollBottomPosition: number) => {
+        const currentContentRef: HTMLDivElement | null = contentRef.current;
+
+        if (currentContentRef) {
+            const sectionVisibleHeight: number[] = [];
+
+            sections.forEach((s: PortfolioSection, i: number) => {
+                const section: HTMLDivElement = sectionsRef.current[i];
+
+                if (section) {
+                    const sectionHeight: number = section.offsetHeight;
+
+                    const sectionTopPosition = section.offsetTop - currentContentRef.offsetTop;
+                    const secitonBottomPosition = sectionTopPosition + sectionHeight;
+
+                    const visibleHeight: number = Math.max(Math.min(scrollBottomPosition, secitonBottomPosition) - Math.max(scrollTopPosition, sectionTopPosition), 0);
+                    const visibleHeightPercentage: number = visibleHeight / sectionHeight;
+
+                    sectionVisibleHeight[i] = visibleHeightPercentage;
+                }
+            });
+
+            setSelectedMenuItem(sectionVisibleHeight.indexOf(Math.max(...sectionVisibleHeight)));
+        }
+    };
+
+    const debouncedAddEventListener = _.debounce(() => {
+        contentRef.current?.addEventListener('scroll', throttledScroll);
+    }, 1000);
 
     return (
         <div className='PortfolioPage'>
             <div className='PortfolioPage-header'>
                 <div className='PortfolioPage-title'>Lindsey Rutledge</div>
-                <div className='PortfolioPage-header-icons' ref={iconsRef}>
-                    {sections.map((section: PortfolioSection) => {
+                <div className='PortfolioPage-header-icons'>
+                    {sections.map((section: PortfolioSection, i: number) => {
                         return (
-                            <div className='PortfolioPage-header-iconsGroup'>
+                            <div key={section.id} className='PortfolioPage-header-iconsGroup' ref={icon => icon ? iconsRef.current[i] = icon : undefined}>
                                 <a
-                                    className={classNames('Portfolio-header-icon', `${section.id}-icon`)}
+                                    className={classNames('PortfolioPage-header-icon', `${section.id}-icon`)}
                                     id={`${section.id}-icon`}
                                     href={`#${section.id}`}
                                     title={section.label}
+                                    onClick={() => {
+                                        contentRef.current?.removeEventListener('scroll', throttledScroll);
+                                        debouncedAddEventListener();
+                                        setSelectedMenuItem(i);
+                                    }}
                                 >
                                     {section.icon}
                                 </a>
                                 <div
-                                    className={classNames('Portfolio-header-iconLabel', `${section.id}-label`)}
+                                    className={classNames('PortfolioPage-header-iconLabel', `${section.id}-label`)}
                                 >
                                     {section.label}
                                 </div>
@@ -113,10 +156,15 @@ export const PortfolioPage: FunctionComponent = () => {
                 </div>
             </div>
             <div className='PortfolioPage-content' ref={contentRef}>
-                {sections.map((section: PortfolioSection) => {
+                {sections.map((section: PortfolioSection, i: number) => {
                     return (
-                        <div className='PortfolioPage-section'>
-                            <div id={section.id} className='PortfolioPage-heading'>{section.label}</div>
+                        <div
+                            key={section.id}
+                            id={section.id}
+                            className='PortfolioPage-section'
+                            ref={section => section ? sectionsRef.current[i] = section : undefined}
+                        >
+                            <div className='PortfolioPage-heading'>{section.label}</div>
                         </div>
                     );
                 })}
