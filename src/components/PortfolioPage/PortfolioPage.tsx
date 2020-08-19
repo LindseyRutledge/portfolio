@@ -6,7 +6,9 @@ import {
     RiLightbulbLine,
     RiBriefcase3Line,
     RiGithubLine,
-    RiLinksLine
+    RiLinksLine,
+    RiMoonLine,
+    RiSunLine
 } from 'react-icons/ri';
 import * as _ from 'lodash';
 import classNames from 'classnames';
@@ -18,6 +20,7 @@ export interface PortfolioSection {
 }
 
 export const PortfolioPage: FunctionComponent = () => {
+    const [theme, setTheme] = useState<string>('dark-theme');
     const [usedLocationHash, setUsedLocationHash] = useState<boolean>(false);
 
     const contentRef = useRef<HTMLDivElement>(null);
@@ -119,9 +122,19 @@ export const PortfolioPage: FunctionComponent = () => {
     }, 1000);
 
     return (
-        <div className='PortfolioPage'>
+        <div className={classNames('PortfolioPage', theme)}>
             <div className='PortfolioPage-header'>
-                <div className='PortfolioPage-title'>Lindsey Rutledge</div>
+                <div className='PortfolioPage-title'>
+                    <div className='PortfolioPage-name'>Lindsey</div>
+                    <div className='PortfolioPage-name'>Rutledge</div>
+                    <div
+                        className='PortfolioPage-themeToggle'
+                        onClick={() => setTheme(theme === 'dark-theme' ? 'light-theme' : 'dark-theme')}
+                        title='Change theme'
+                    >
+                        {theme === 'dark-theme' ? <RiMoonLine /> : <RiSunLine />}
+                    </div>
+                </div>
                 <div className='PortfolioPage-header-icons'>
                     {sections.map((section: PortfolioSection, i: number) => {
                         return (
