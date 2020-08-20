@@ -1,134 +1,130 @@
 @import '../../assets/styles/variables.scss';
 
-@mixin themable($theme-name, $theme) {
-    .PortfolioPage.#{$theme-name} {
-        height: 100vh;
-        background-color: t($theme, $background);
-        color: $background-text;
-        display: flex;
-        flex-direction: column;
+.PortfolioPage{
+    height: 100vh;
+    background-color: var(--background);
+    color: var(--background-text);
+    display: flex;
+    flex-direction: column;
 
-        .PortfolioPage-heading {
-            color: t($theme, $secondary);
-            font-weight: bold;
-            text-decoration: underline;
+    .PortfolioPage-heading {
+        color: var(--secondary);
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    .PortfolioPage-header {
+        background-color: var(--background-variant);
+        box-shadow: 0px 2px 5px var(--shadow);
+        color: var(--primary);
+        padding: $standard-spacing;
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
         }
 
-        .PortfolioPage-header {
-            background-color: t($theme, $background-variant);
-            box-shadow: 0px 2px 5px rgba($black, 0.2);
-            color: t($theme, $primary);
-            padding: $standard-spacing;
+        .PortfolioPage-title {
+            display: flex;
+            font-size: 2rem;
+            font-weight: 200;
+            margin-bottom: $standard-spacing;
+            align-items: center;
 
-            a {
-                color: t($theme, $primary);
-                text-decoration: none;
+            .PortfolioPage-name {
+                &::first-letter {
+                    color: var(--secondary);
+                    font-weight: 300;
+                }
             }
 
-            .PortfolioPage-title {
+            > *:not(:last-child) {
+                margin-right: $standard-spacing / 2;
+            }
+
+            .PortfolioPage-themeToggle {
+                cursor: pointer;
                 display: flex;
-                font-size: 2rem;
-                font-weight: 200;
-                margin-bottom: $standard-spacing;
+                font-size: 1.5rem;
+            }
+        }
+
+        .PortfolioPage-header-icons {
+            display: flex;
+            font-size: 2rem;
+            justify-content: space-between;
+            position: relative;
+
+            &::after {
+                content: '';
+                background-color: var(--secondary);
+                height: 2px;
+                width: 100%;
+                position: absolute;
+                opacity: 0.3;
+                top: 1.5rem;
+            }
+
+            .PortfolioPage-header-iconGroup {
+                display: flex;
+                flex-direction: column;
                 align-items: center;
-    
-                .PortfolioPage-name {
-                    &::first-letter {
-                        color: t($theme, $secondary);
-                        font-weight: 300;
-                    }
-                }
+                justify-content: center;
 
-                > *:not(:last-child) {
-                    margin-right: $standard-spacing / 2;
-                }
-
-                .PortfolioPage-themeToggle {
-                    cursor: pointer;
-                    display: flex;
-                    font-size: 1.5rem;
-                }
-            }
-
-            .PortfolioPage-header-icons {
-                display: flex;
-                font-size: 2rem;
-                justify-content: space-between;
-                position: relative;
-
-                &::after {
-                    content: '';
-                    background-color: rgba(t($theme, $secondary), 0.2);
-                    height: 2px;
-                    width: 100%;
-                    position: absolute;
-                    top: 1.5rem;
-                }
-
-                .PortfolioPage-header-iconGroup {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-
-                    &.selected {
-                        .PortfolioPage-header-icon {
-                            background-color: t($theme, $secondary);
-                            color: t($theme, $secondary-text);
-                        }
-
-                        .PortfolioPage-header-iconLabel {
-                            color: t($theme, $secondary);
-                        }
-                    }
-
-                    &:hover:not(.selected) {
-                        .PortfolioPage-header-icon {
-                            background-color: t($theme, $primary-variant);
-                        }
-
-                        .PortfolioPage-header-iconLabel {
-                            color: t($theme, $primary-variant);
-                        }
-                    }
-
+                &.selected {
                     .PortfolioPage-header-icon {
-                        height: 3rem;
-                        width: 3rem;
-                        align-items: center;
-                        background-color: t($theme, $primary);
-                        border-radius: 50%;
-                        color: t($theme, $primary-text);
-                        display: flex;
-                        flex-shrink: 0;
-                        justify-content: center;
-                        margin-bottom: 1rem;
-                        z-index: 1;
+                        background-color: var(--secondary);
+                        color: var(--secondary-text);
                     }
-        
+
                     .PortfolioPage-header-iconLabel {
-                        font-size: 1rem;
+                        color: var(--secondary);
                     }
                 }
-            }
-        }
-        
-        .PortfolioPage-content {
-            flex: 1;
-            overflow: auto;
-            scroll-behavior: smooth;
 
-            .PortfolioPage-section {
-                min-height: 300px;
-                padding: $standard-spacing;
+                &:hover:not(.selected) {
+                    .PortfolioPage-header-icon {
+                        background-color: var(--primary-variant);
+                    }
 
-                &:not(:last-child) {
-                    border-bottom: 1px solid t($theme, $primary);
+                    .PortfolioPage-header-iconLabel {
+                        color: var(--primary-variant);
+                    }
+                }
+
+                .PortfolioPage-header-icon {
+                    height: 3rem;
+                    width: 3rem;
+                    align-items: center;
+                    background-color: var(--primary);
+                    border-radius: 50%;
+                    color: var(--primary-text);
+                    display: flex;
+                    flex-shrink: 0;
+                    justify-content: center;
+                    margin-bottom: 1rem;
+                    z-index: 1;
+                }
+    
+                .PortfolioPage-header-iconLabel {
+                    font-size: 1rem;
                 }
             }
         }
     }
-}
+    
+    .PortfolioPage-content {
+        flex: 1;
+        overflow: auto;
+        scroll-behavior: smooth;
 
-@include themable(dark-theme, $dark-theme);
-@include themable(light-theme, $light-theme);
+        .PortfolioPage-section {
+            min-height: 300px;
+            padding: $standard-spacing;
+
+            &:not(:last-child) {
+                border-bottom: 1px solid var(--primary);
+            }
+        }
+    }
+}

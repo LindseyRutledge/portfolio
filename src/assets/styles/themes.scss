@@ -1,0 +1,54 @@
+@import './variables.scss';
+
+// ***********************************************
+// Colors
+// ***********************************************
+
+:root {
+    --black: #000000;
+    --grey-dark: #121212;
+    --blue: #285461;
+    --teal: #508882;
+    --teal-light: #bfd9d6;
+    --pink: #df5181;
+    --mint: #cee7e9;
+    --mint-dark: #99cdd1;
+    --parchment: #f8f7ea;
+    --white: #ffffff;
+}
+
+// ***********************************************
+// Themes
+// ***********************************************
+
+:root {
+    --shadow: rgba(#{hexToRGB(#000000)}, 0.2);
+}
+
+.dark-theme {
+    --primary: var(--mint);
+    --primary-variant: var(--mint-dark);
+    --primary-text: var(--black);
+
+    --secondary: var(--pink);
+    --secondary-variant: var(--pink);
+    --secondary-text: var(--black);
+
+    --background: var(--grey-dark);
+    --background-variant: rgba(#{hexToRGB(#ffffff)}, 0.05);
+    --background-text: var(--white);
+}
+
+.light-theme {
+    --primary: var(--blue);
+    --primary-variant: var(--blue);
+    --primary-text: var(--white);
+
+    --secondary: var(--teal);
+    --secondary-variant: var(--teal);
+    --secondary-text: var(--mint);
+
+    --background: var(--parchment);
+    --background-variant: var(--teal-light);
+    --background-text: var(--black);
+}

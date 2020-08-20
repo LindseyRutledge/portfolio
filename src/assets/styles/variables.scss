@@ -1,74 +1,11 @@
 @import './fonts.scss';
 
-// ***********************************************
 // Spacing
-// ***********************************************
 
 $standard-spacing: 1rem;
 
-// ***********************************************
-// Colors
-// ***********************************************
+// Color Functions
 
-$black: #000000;
-$grey-dark: #121212;
-$blue: #285461;
-$teal: #508882;
-$teal-light: #bfd9d6;
-$pink: #df5181;
-$mint: #cee7e9;
-$mint-dark: #99cdd1;
-$parchment: #f8f7ea;
-$white: #ffffff;
-
-// ***********************************************
-// Themes
-// ***********************************************
-
-$dark-theme: (
-    primary: $mint,
-    primary-variant: $mint-dark,
-    primary-text: $black,
-
-    secondary: $pink,
-    secondary-variant: $pink,
-    secondary-text: $black,
-
-    background: $grey-dark,
-    background-variant: rgba($white, 0.05),
-    background-text: $white,
-);
-
-$light-theme: (
-    primary: $blue,
-    primary-variant: $blue,
-    primary-text: $white,
-
-    secondary: $teal,
-    secondary-variant: $teal,
-    secondary-text: $mint,
-
-    background: $parchment,
-    background-variant: $teal-light,
-    background-text: $black,
-);
-
-// Theme Variables
-
-$primary: 'primary';
-$primary-variant: 'primary-variant';
-$primary-text: 'primary-text';
-
-$secondary: 'secondary';
-$secondary-variant: 'secondary-text';
-$secondary-text: 'secondary-text';
-
-$background: 'background';
-$background-variant: 'background-variant';
-$background-text: 'background-text';
-
-// Theme Functions
-
-@function t($theme, $key) {
-    @return map-get($theme, $key);
+@function hexToRGB($hex) {
+    @return red($hex), green($hex), blue($hex);
 }
