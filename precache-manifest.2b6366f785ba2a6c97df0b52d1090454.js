@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "66fb7c6dde239ce106a79cf4fd79f217",
+    "revision": "f4e0d44348eb917db79db77df11e7d01",
     "url": "/portfolio/index.html"
   },
   {
-    "revision": "8f978bdfe7c596ccb2bc",
-    "url": "/portfolio/static/css/main.c7a96dae.chunk.css"
+    "revision": "d86ddc42fb67c13a58be",
+    "url": "/portfolio/static/css/main.629435ef.chunk.css"
   },
   {
-    "revision": "3881b04b3d5d7459d35b",
-    "url": "/portfolio/static/js/2.7f408e6a.chunk.js"
+    "revision": "d70c32c29d4af51b84d2",
+    "url": "/portfolio/static/js/2.8ea2ef7e.chunk.js"
   },
   {
     "revision": "c836aaadfe43dfd9fcb8ddeddfd61e18",
-    "url": "/portfolio/static/js/2.7f408e6a.chunk.js.LICENSE.txt"
+    "url": "/portfolio/static/js/2.8ea2ef7e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "8f978bdfe7c596ccb2bc",
-    "url": "/portfolio/static/js/main.5b97ac32.chunk.js"
+    "revision": "d86ddc42fb67c13a58be",
+    "url": "/portfolio/static/js/main.96bacb29.chunk.js"
   },
   {
     "revision": "7a6cc99bd8f08f9fa6ec",
@@ -30,6 +30,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "08d37409a924ae95fff8df77747b0c42",
     "url": "/portfolio/static/media/TitilliumWeb-Bold.08d37409.ttf"
+  },
+  {
+    "revision": "10f943f4f5730e86fe90d97f38722b09",
+    "url": "/portfolio/static/media/TitilliumWeb-BoldItalic.10f943f4.ttf"
   },
   {
     "revision": "f291df8df03282f2c26a9d93e748540e",
