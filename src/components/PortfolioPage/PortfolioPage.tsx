@@ -12,11 +12,13 @@ import {
 } from 'react-icons/ri';
 import * as _ from 'lodash';
 import classNames from 'classnames';
+import { LinksSection } from './Sections/LinksSection';
 
 export interface PortfolioSection {
     id: string;
     label: string;
     icon: ReactNode;
+    section?: ReactNode;
 }
 
 export const PortfolioPage: FunctionComponent = () => {
@@ -32,7 +34,7 @@ export const PortfolioPage: FunctionComponent = () => {
         { id: 'skills', label: 'Skills', icon: <RiLightbulbLine /> },
         { id: 'work-history', label: 'Work History', icon: <RiBriefcase3Line /> },
         { id: 'projects', label: 'Projects', icon: <RiGithubLine /> },
-        { id: 'links', label: 'Links', icon: <RiLinksLine /> },
+        { id: 'links', label: 'Links', icon: <RiLinksLine />, section: <LinksSection /> },
     ];
 
     const updateMenu = () => {
@@ -175,6 +177,7 @@ export const PortfolioPage: FunctionComponent = () => {
                             <div className='PortfolioPage-heading'>
                                 <span className='PortfolioPage-heading-text'>{section.label}</span>
                             </div>
+                            {section.section ? section.section : undefined}
                         </div>
                     );
                 })}

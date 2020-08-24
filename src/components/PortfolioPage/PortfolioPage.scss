@@ -15,7 +15,6 @@
 
         a {
             color: var(--primary);
-            text-decoration: none;
         }
 
         .PortfolioPage-title {
@@ -118,9 +117,14 @@
 
         .PortfolioPage-section {
             min-height: 300px;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: $standard-spacing;
             padding: $standard-spacing;
 
             .PortfolioPage-heading {
+                width: 100%;
                 align-items: center;
                 color: var(--secondary);
                 display: flex;
@@ -128,6 +132,7 @@
                 font-weight: bold;
                 text-align: center;
                 font-size: 1.5rem;
+                margin-bottom: $standard-spacing * 2;
                 position: relative;
 
                 .PortfolioPage-heading-text {
