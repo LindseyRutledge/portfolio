@@ -172,7 +172,9 @@ export const PortfolioPage: FunctionComponent = () => {
                             className='PortfolioPage-section'
                             ref={section => section ? sectionsRef.current[i] = section : undefined}
                         >
-                            <div className='PortfolioPage-heading'>{section.label}</div>
+                            <div className='PortfolioPage-heading'>
+                                <span className='PortfolioPage-heading-text'>{section.label}</span>
+                            </div>
                         </div>
                     );
                 })}
