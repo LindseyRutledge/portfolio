@@ -7,28 +7,33 @@
 
     
     .AboutSection-avatar {
+        height: 20rem;
+        width: 20rem;
+        border: 2px solid var(--secondary);
+        border-radius: 50%;
+        flex-shrink: 0;
+        margin-right: $standard-spacing * 2;
+        overflow: hidden;
         position: relative;
 
         .AboutSection-avatar-image {
-            height: 20rem;
-            width: 20rem;
-            border: 2px solid var(--secondary);
-            border-radius: 50%;
-            margin-right: $standard-spacing * 2;
+            height: 24rem;
+            width: 24rem;
+            margin: -1rem -2rem;
         }
     
         .AboutSection-avatar-redirect {
-            display: flex;
-            align-items: center;
-            justify-content: center;
             height: 2rem;
             width: 2rem;
-            background-color: var(--secondary);
-            position: absolute;
-            color: var(--background);
-            border-radius: 50%;
-            bottom: 2rem;
+            top: 3rem;
             right: 2rem;
+            align-items: center;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            color: var(--background);
+            display: flex;
+            justify-content: center;
+            position: absolute;
         }
     }
 
@@ -40,18 +45,18 @@
                 content: '';
                 height: 2px;
                 width: 5rem;
-                background-color: var(--secondary);
-                bottom: -1rem;
                 left: 0;
+                right: 0;
+                bottom: -1rem;
+                background-color: var(--secondary);
                 position: absolute;
                 opacity: 0.3;
-                right: 0;
             }
         }
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
     .AboutSection {
         flex-direction: column;
         text-align: center;

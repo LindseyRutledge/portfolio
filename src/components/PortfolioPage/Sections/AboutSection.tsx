@@ -15,8 +15,8 @@ export const AboutSection: FunctionComponent = () => {
                 />
                 <a
                     className='AboutSection-avatar-redirect'
-                    href='https://picrew.me/image_maker/257476'
-                    title='Image Credit'
+                    href='https://picrew.me/image_maker/114808'
+                    title='Image Credit: ummmmandy.tumblr.com'
                 >
                     <RiShareForwardLine />
                 </a>
