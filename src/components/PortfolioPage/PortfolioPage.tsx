@@ -13,6 +13,7 @@ import {
 import * as _ from 'lodash';
 import classNames from 'classnames';
 import { LinksSection } from './Sections/LinksSection';
+import { AboutSection } from './Sections/AboutSection';
 
 export interface PortfolioSection {
     id: string;
@@ -30,7 +31,7 @@ export const PortfolioPage: FunctionComponent = () => {
     const sectionsRef = useRef<HTMLDivElement[]>([]);
 
     const sections: PortfolioSection[] = [
-        { id: 'about', label: 'About', icon: <RiEmotionLine /> },
+        { id: 'about', label: 'About', icon: <RiEmotionLine />, section: <AboutSection /> },
         { id: 'skills', label: 'Skills', icon: <RiLightbulbLine /> },
         { id: 'work-history', label: 'Work History', icon: <RiBriefcase3Line /> },
         { id: 'projects', label: 'Projects', icon: <RiGithubLine /> },

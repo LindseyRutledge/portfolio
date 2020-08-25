@@ -1,0 +1,73 @@
+@import '../../../assets/styles/variables.scss';
+
+.AboutSection {
+    align-items: center;
+    display: flex;
+    font-size: 1.5rem;
+
+    
+    .AboutSection-avatar {
+        position: relative;
+
+        .AboutSection-avatar-image {
+            height: 20rem;
+            width: 20rem;
+            border: 2px solid var(--secondary);
+            border-radius: 50%;
+            margin-right: $standard-spacing * 2;
+        }
+    
+        .AboutSection-avatar-redirect {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 2rem;
+            width: 2rem;
+            background-color: var(--secondary);
+            position: absolute;
+            color: var(--background);
+            border-radius: 50%;
+            bottom: 2rem;
+            right: 2rem;
+        }
+    }
+
+    .AboutSection-content {
+        > *:not(:last-child) {
+            position: relative;
+
+            &::after {
+                content: '';
+                height: 2px;
+                width: 5rem;
+                background-color: var(--secondary);
+                bottom: -1rem;
+                left: 0;
+                position: absolute;
+                opacity: 0.3;
+                right: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .AboutSection {
+        flex-direction: column;
+        text-align: center;
+
+        .AboutSection-avatar {
+            margin-right: 0;
+            margin-bottom: $standard-spacing * 2;
+        }
+        
+        .AboutSection-content {
+            > *:not(:last-child) {
+    
+                &::after {
+                    margin: auto;
+                }
+            }
+        }
+    }
+}
