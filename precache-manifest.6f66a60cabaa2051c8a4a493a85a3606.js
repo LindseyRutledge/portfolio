@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f4d3b1f964f59c15f9d92225764f5278",
+    "revision": "7c24bd1a924564f648b164ddad253a88",
     "url": "/portfolio/index.html"
   },
   {
-    "revision": "c5f25f6bc1cf152a2bce",
-    "url": "/portfolio/static/css/main.55d4fd84.chunk.css"
+    "revision": "255ea7aa9a745bf86ec1",
+    "url": "/portfolio/static/css/main.f62f73a5.chunk.css"
   },
   {
     "revision": "bb2b6eb4177573a97d12",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/portfolio/static/js/2.b7908b11.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c5f25f6bc1cf152a2bce",
-    "url": "/portfolio/static/js/main.c1766151.chunk.js"
+    "revision": "255ea7aa9a745bf86ec1",
+    "url": "/portfolio/static/js/main.00b360f2.chunk.js"
   },
   {
     "revision": "7a6cc99bd8f08f9fa6ec",
@@ -68,7 +68,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/portfolio/static/media/TitilliumWeb-SemiBoldItalic.f8f4f550.ttf"
   },
   {
-    "revision": "f66880b4b881276fb88498077d334958",
-    "url": "/portfolio/static/media/profile-image.f66880b4.png"
+    "revision": "a6b90a10c7c997b779f67a9d84e6a347",
+    "url": "/portfolio/static/media/profile-image.a6b90a10.png"
   }
 ]);
