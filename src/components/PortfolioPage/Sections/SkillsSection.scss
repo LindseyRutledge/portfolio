@@ -1,0 +1,29 @@
+@import '../../../assets/styles/variables.scss';
+
+.SkillsSection {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    padding: $standard-spacing;
+
+    .SkillsSection-description {
+        margin-bottom: $standard-spacing;
+        font-size: 1.25rem;
+    }
+    
+    .SkillsSection-list {
+        columns: 2 200px;
+        font-size: 1.25rem;
+        padding: 0 0 0 1.25rem;
+        margin: 0;
+
+        li {
+            margin-left: 1.25rem;
+            padding-left: 0.5rem;
+
+            &::marker {
+                color: var(--primary-variant);
+            }
+        }
+    }
+}

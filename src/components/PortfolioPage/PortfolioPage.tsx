@@ -14,6 +14,7 @@ import * as _ from 'lodash';
 import classNames from 'classnames';
 import { LinksSection } from './Sections/LinksSection';
 import { AboutSection } from './Sections/AboutSection';
+import { SkillsSection } from './Sections/SkillsSection';
 
 export interface PortfolioSection {
     id: string;
@@ -32,7 +33,7 @@ export const PortfolioPage: FunctionComponent = () => {
 
     const sections: PortfolioSection[] = [
         { id: 'about', label: 'About', icon: <RiEmotionLine />, section: <AboutSection /> },
-        { id: 'skills', label: 'Skills', icon: <RiLightbulbLine /> },
+        { id: 'skills', label: 'Skills', icon: <RiLightbulbLine />, section: <SkillsSection /> },
         { id: 'work-history', label: 'Work History', icon: <RiBriefcase3Line /> },
         { id: 'projects', label: 'Projects', icon: <RiGithubLine /> },
         { id: 'links', label: 'Links', icon: <RiLinksLine />, section: <LinksSection /> },

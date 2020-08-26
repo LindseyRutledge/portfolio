@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { FunctionComponent } from 'react';
 import './AboutSection.scss';
-import { RiShareForwardBoxLine, RiShareBoxLine, RiShareForwardLine } from 'react-icons/ri';
+import { RiShareForwardLine } from 'react-icons/ri';
 
 export const AboutSection: FunctionComponent = () => {
-
     return (
         <div className='AboutSection'>
             <div className='AboutSection-avatar'>

@@ -4,8 +4,6 @@ import './LinksSection.scss';
 import { RiLinkedinBoxLine, RiGithubLine, RiFileLine } from 'react-icons/ri';
 
 export const LinksSection: FunctionComponent = () => {
-
-
     return (
         <div className='LinksSection'>
             <a href='https://www.linkedin.com/in/lindsey-rutledge-414875b4/'>
