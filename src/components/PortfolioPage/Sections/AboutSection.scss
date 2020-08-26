@@ -7,8 +7,8 @@
     padding: $standard-spacing;
     
     .AboutSection-avatar {
-        height: 20rem;
-        width: 20rem;
+        height: 18rem;
+        width: 18rem;
         border: 2px solid var(--secondary);
         border-radius: 50%;
         flex-shrink: 0;
@@ -17,15 +17,15 @@
         position: relative;
 
         .AboutSection-avatar-image {
-            height: 24rem;
-            width: 24rem;
+            height: 22rem;
+            width: 22rem;
             margin: -1rem -2rem;
         }
     
         .AboutSection-avatar-redirect {
             height: 2rem;
             width: 2rem;
-            top: 3rem;
+            top: 2.5rem;
             right: 2rem;
             align-items: center;
             background-color: var(--secondary);
