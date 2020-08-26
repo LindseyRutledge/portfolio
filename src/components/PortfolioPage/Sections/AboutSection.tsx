@@ -23,7 +23,7 @@ export const AboutSection: FunctionComponent = () => {
             <div className='AboutSection-content'>
                 <p>Hi, I'm <em>Lindsey Rutledge</em>!</p>
                 <p>I am a Full Stack <em>Web Developer</em> specializing in <em>Front-end</em> web development.</p>
-                <p>I currently based in <em>Bellevue, WA</em>.</p>
+                <p>Currently based in <em>Bellevue, WA</em>.</p>
             </div>
         </div>
     )
