@@ -1,3 +1,18 @@
+
+This is an application I made for myself to display a small sample of my work and experiences.  It serves both as a sort of resume, and as a code sample.
+
+## Additional Scripts
+### `npm run deploy`
+Pushes code to GitHub and deploys it to GitHub Pages at https://lindseyrutledge.github.io/portfolio/
+
+## Desired/Upcoming Features
+- Testing.  This was skipped because this application is fairly simple as-is, and to help expedite it's creation.  However, demonstrating tests through Jest would be idea.
+- Cookies.  Right now, the theme you choose does not stay upon refresh.
+- CSS Animations
+- Additional Pojects.  Current idea: weather display application.
+----
+# Default README info
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

@@ -25,6 +25,9 @@ export const AboutSection: FunctionComponent = () => {
                 <p>Hi, I'm <em>Lindsey Rutledge</em>!</p>
                 <p>I am a Full Stack <em>Web Developer</em> specializing in <em>Front-end</em> web development.</p>
                 <p>Currently based in <em>Bellevue, WA</em>.</p>
+                <p className='AboutSection-resume'>
+                    <a href={`${process.env.PUBLIC_URL}/Resume - Lindsey Rutledge - 2020-08.docx`}>Resume</a>
+                </p>
             </div>
         </div>
     )

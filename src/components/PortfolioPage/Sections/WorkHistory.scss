@@ -1,0 +1,52 @@
+@import '../../../assets/styles/variables.scss';
+
+.WorkHistory {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .WorkHistory-info {
+        margin-bottom: $standard-spacing;
+    }
+
+    .WorkHistory-content {
+        display: flex;
+        align-items: center;
+
+        .WorkHistory-position {
+            background-color: var(--background-variant);
+            border-radius: $standard-spacing;
+            padding: $standard-spacing * 2;
+
+            &:not(.selected) {
+                display: none;
+            }
+
+            .WorkHistory-title {
+                font-size: 1.25rem;
+                font-weight: bold;
+                color: var(--secondary);
+            }
+
+            .WorkHistory-location {
+                margin-bottom: $standard-spacing / 2;
+            }
+        }
+
+        .WorkHistory-navigation {
+            font-size: 3rem;
+            color: var(--background);
+
+            &:not(.end) {
+                color: var(--secondary);
+                cursor: pointer;
+    
+                &:hover {
+                    color: var(--primary);
+                }
+            }
+        
+        }
+    }
+}

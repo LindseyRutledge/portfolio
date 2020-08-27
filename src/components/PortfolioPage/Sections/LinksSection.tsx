@@ -18,10 +18,12 @@ export const LinksSection: FunctionComponent = () => {
                     <div className='LinksSection-link-label'>GitHub</div>
                 </div>
             </a>
-            <div className='LinksSection-link'>
-                <RiFileLine />
-                <div className='LinksSection-link-label'>Resume</div>
-            </div>
+            <a href={`${process.env.PUBLIC_URL}/Resume - Lindsey Rutledge - 2020-08.docx`}>
+                <div className='LinksSection-link'>
+                    <RiFileLine />
+                    <div className='LinksSection-link-label'>Resume</div>
+                </div>
+            </a>
         </div>
     );
 };

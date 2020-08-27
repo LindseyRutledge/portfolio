@@ -53,6 +53,17 @@
                 opacity: 0.3;
             }
         }
+
+        .AboutSection-resume {
+            margin-top: $standard-spacing * 3;
+
+            a {
+                background-color: var(--background-variant);
+                border-radius: $standard-spacing;
+                font-weight: bold;
+                padding: ($standard-spacing / 2) $standard-spacing;
+            }
+        }
     }
 }
 

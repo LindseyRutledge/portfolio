@@ -16,12 +16,13 @@ import { LinksSection } from './Sections/LinksSection';
 import { AboutSection } from './Sections/AboutSection';
 import { SkillsSection } from './Sections/SkillsSection';
 import { ProjectsSection } from './Sections/ProjectsSection';
+import { WorkHistory } from './Sections/WorkHistory';
 
 export interface PortfolioSection {
     id: string;
     label: string;
     icon: ReactNode;
-    section?: ReactNode;
+    section: ReactNode;
 }
 
 export const PortfolioPage: FunctionComponent = () => {
@@ -35,7 +36,7 @@ export const PortfolioPage: FunctionComponent = () => {
     const sections: PortfolioSection[] = [
         { id: 'about', label: 'About', icon: <RiEmotionLine />, section: <AboutSection /> },
         { id: 'skills', label: 'Skills', icon: <RiLightbulbLine />, section: <SkillsSection /> },
-        { id: 'work-history', label: 'Work History', icon: <RiBriefcase3Line /> },
+        { id: 'work-history', label: 'Work History', icon: <RiBriefcase3Line />, section: <WorkHistory /> },
         { id: 'projects', label: 'Projects', icon: <RiGithubLine />, section: <ProjectsSection /> },
         { id: 'links', label: 'Links', icon: <RiLinksLine />, section: <LinksSection /> },
     ];
