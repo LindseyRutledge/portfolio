@@ -1,0 +1,45 @@
+@import '../../../assets/styles/variables.scss';
+
+.ProjectsSection {
+    .ProjectsSection-project {
+        // max-width: 20rem;
+        background-color: var(--background-variant);
+        padding: $standard-spacing * 2;
+        border-radius: $standard-spacing;
+
+        > *:not(:last-child) {
+            margin-bottom: $standard-spacing / 2;
+        }
+
+        .ProjectsSection-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+
+            .ProjectsSection-link {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .ProjectsSection-linkIcon {
+                    height: 2.5rem;
+                    width: 2.5rem;
+                    background-color: var(--background);
+                    border-radius: 50%;
+                    padding: $standard-spacing / 2;
+                    margin-left: $standard-spacing / 2;
+                }
+            }
+        }
+
+        .ProjectsSection-description {
+        }
+
+        .ProjectsSection-features {
+            columns: 2 10rem;
+
+            .ProjectsSection-features-section {
+                break-inside: avoid;  
+            }
+        }
+    }
+}

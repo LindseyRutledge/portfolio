@@ -14,16 +14,5 @@
     .SkillsSection-list {
         columns: 2 150px;
         font-size: 1.25rem;
-        padding: 0 0 0 1.25rem;
-        margin: 0;
-
-        li {
-            margin-left: 1.25rem;
-            padding-left: 0.5rem;
-
-            &::marker {
-                color: var(--primary-variant);
-            }
-        }
     }
 }

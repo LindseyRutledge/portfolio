@@ -6,7 +6,7 @@ import { RiLinkedinBoxLine, RiGithubLine, RiFileLine } from 'react-icons/ri';
 export const LinksSection: FunctionComponent = () => {
     return (
         <div className='LinksSection'>
-            <a href='https://www.linkedin.com/in/lindsey-rutledge-414875b4/'>
+            <a href='https://www.linkedin.com/in/rutledgelindsey/'>
                 <div className='LinksSection-link'>
                     <RiLinkedinBoxLine />
                     <div className='LinksSection-link-label'>LinkedIn</div>
