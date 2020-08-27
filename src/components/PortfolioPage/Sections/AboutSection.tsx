@@ -11,11 +11,12 @@ export const AboutSection: FunctionComponent = () => {
                     className='AboutSection-avatar-image'
                     src={require('../../../assets/images/profile-image.png')}
                     alt='Avatar'
+                    title='Image Credit: ummmmandy.tumblr.com'
                 />
                 <a
                     className='AboutSection-avatar-redirect'
                     href='https://picrew.me/image_maker/114808'
-                    title='Image Credit: ummmmandy.tumblr.com'
+                    title='Picrew Avatar Creator - by ummmmandy'
                 >
                     <RiShareForwardLine />
                 </a>
