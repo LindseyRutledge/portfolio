@@ -13,6 +13,7 @@
         box-shadow: 0px 2px 5px var(--shadow);
         color: var(--primary);
         padding: $standard-spacing;
+        z-index: 1;
 
         a {
             color: var(--primary);
