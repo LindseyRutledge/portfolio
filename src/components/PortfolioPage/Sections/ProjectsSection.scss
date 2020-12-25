@@ -1,8 +1,22 @@
 @import '../../../assets/styles/variables.scss';
 
 .ProjectsSection {
+    display: flex;
+
+    > *:not(:last-child) {
+        margin-right: 1rem;
+    }
+
+    @media (max-width: 600px) {
+        flex-wrap: wrap;
+
+        > *:not(:last-child) {
+            margin-bottom: 1rem;
+            margin-right: 0;
+        }
+    }
+
     .ProjectsSection-project {
-        // max-width: 20rem;
         background-color: var(--background-variant);
         padding: $standard-spacing * 2;
         border-radius: $standard-spacing;
@@ -29,9 +43,6 @@
                     margin-left: $standard-spacing / 2;
                 }
             }
-        }
-
-        .ProjectsSection-description {
         }
 
         .ProjectsSection-features {

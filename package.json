@@ -2,7 +2,7 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://foxglovelin.github.io/portfolio/",
+  "homepage": "https://lindseyrutledge.github.io/portfolio/",
   "dependencies": {},
   "scripts": {
     "start": "react-scripts start",
