@@ -7,10 +7,12 @@ export const ProjectsSection: React.FunctionComponent = () => {
         <div className='ProjectsSection'>
             <div className='ProjectsSection-project'>
                 <div className='ProjectsSection-title'>
-                    <a className='ProjectsSection-link' href='https://github.com/LindseyRutledge/portfolio'>
+                    <span className='ProjectsSection-links'>
                         <span>Portfolio</span>
-                        <RiGithubLine className='ProjectsSection-linkIcon' />
-                    </a>
+                        <a className='ProjectsSection-link' href='https://github.com/LindseyRutledge/portfolio'>
+                            <RiGithubLine className='ProjectsSection-linkIcon' />
+                        </a>
+                    </span>
                 </div>
                 <div className='ProjectsSection-description'>This project! It is a small sample of my work.</div>
                 <div className='ProjectsSection-features'>
@@ -36,11 +38,9 @@ export const ProjectsSection: React.FunctionComponent = () => {
             </div>
             <div className='ProjectsSection-project'>
                 <div className='ProjectsSection-title'>
-                    <span className='ProjectsSection-link'>
+                    <span className='ProjectsSection-links'>
                         <span>
-                            <a href='https://github.com/LindseyRutledge/bells'>
-                                Bells
-                        </a>
+                            Bells
                         </span>
                         <span>
                             <a href="https://lindseyrutledge.github.io/bells/">

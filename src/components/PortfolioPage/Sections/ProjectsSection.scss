@@ -2,6 +2,7 @@
 
 .ProjectsSection {
     display: flex;
+    justify-content: center;
 
     > *:not(:last-child) {
         margin-right: 1rem;
@@ -26,10 +27,11 @@
         }
 
         .ProjectsSection-title {
+            color: var(--secondary);
             font-size: 1.5rem;
             font-weight: bold;
 
-            .ProjectsSection-link {
+            .ProjectsSection-links {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
