@@ -2,6 +2,7 @@ import * as React from 'react';
 import { FunctionComponent } from 'react';
 import './LinksSection.scss';
 import { RiLinkedinBoxLine, RiGithubLine, RiFileLine } from 'react-icons/ri';
+import { resumeLink } from '../../../App';
 
 export const LinksSection: FunctionComponent = () => {
     return (
@@ -18,7 +19,7 @@ export const LinksSection: FunctionComponent = () => {
                     <div className='LinksSection-link-label'>GitHub</div>
                 </div>
             </a>
-            <a href={`${process.env.PUBLIC_URL}/Resume - Lindsey Rutledge - 2021-09.docx`}>
+            <a href={resumeLink}>
                 <div className='LinksSection-link'>
                     <RiFileLine />
                     <div className='LinksSection-link-label'>Resume</div>

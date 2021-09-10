@@ -3,6 +3,7 @@ import { FunctionComponent, ReactNode, useState } from 'react';
 import classNames from 'classnames';
 import './WorkHistory.scss';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
+import { resumeLink } from '../../../App';
 
 export const WorkHistory: FunctionComponent = () => {
     const [selectedIndex, setSelectedIndex] = useState<number>(0);
@@ -22,7 +23,7 @@ export const WorkHistory: FunctionComponent = () => {
                 Please check out my
                 <a href='https://www.linkedin.com/in/rutledgelindsey'> LinkedIn </a>
                 or
-                <a href={`${process.env.PUBLIC_URL}/Resume - Lindsey Rutledge - 2020-08.docx`}> Resume </a>
+                <a href={resumeLink}> Resume </a>
                 for additional experience.
             </div>
             <div className='WorkHistory-content'>

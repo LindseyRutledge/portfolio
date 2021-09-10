@@ -2,6 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+export const resumeLink = `${process.env.PUBLIC_URL}/Resume - Lindsey Rutledge - 2021-09.docx`;
+
 function App() {
   return (
     <div className="App">

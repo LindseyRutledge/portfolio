@@ -2,6 +2,7 @@ import * as React from 'react';
 import { FunctionComponent } from 'react';
 import './AboutSection.scss';
 import { RiShareForwardLine } from 'react-icons/ri';
+import { resumeLink } from '../../../App';
 
 export const AboutSection: FunctionComponent = () => {
     return (
@@ -26,7 +27,7 @@ export const AboutSection: FunctionComponent = () => {
                 <p>I am a Full Stack <em>Web Developer</em> specializing in <em>Front-end</em> web development.</p>
                 <p>Currently based in <em>Bellevue, WA</em>.</p>
                 <p className='AboutSection-resume'>
-                    <a href={`${process.env.PUBLIC_URL}/Resume - Lindsey Rutledge - 2021-09.docx`}>Resume</a>
+                    <a href={resumeLink}>Resume</a>
                 </p>
             </div>
         </div>
